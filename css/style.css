@@ -1,0 +1,119 @@
+/* --------------------------------------------- *
+    GENERAL
+ * --------------------------------------------- */
+ * {
+   box-sizing: border-box;
+ }
+body {
+  margin: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  background: url('../img/bg.jpg') center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #333;
+}
+h1, h2 {
+  text-align: center;
+  font-family: 'Lobster', cursive;
+}
+h1{
+  font-size: 3em;
+  color: #eeed;
+}
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 30px;
+  padding: 30px;
+  background-color: #eeeb;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #000c;
+}
+
+/* ------------------- BOUTONS ------------------- */
+button {
+  display: block;
+  padding: 20px;
+  width: 180px;
+  margin: auto;
+  margin-bottom: 30px;
+  background-color: #fff8;
+  border: 0;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #555a;
+}
+button:hover {
+  background-color: #fff;
+}
+
+/* ----------- SECTION LISTING DES TACHES ----------- */
+
+.section-ToDoList {
+  line-height: 2.5em;
+}
+.section-ToDoList input[type="checkbox"] {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.section-ToDoList input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+}
+.section-ToDoList ul {
+  list-style: none;
+  padding: 0;
+}
+/*  Mise en forme du DIV de description de la tache  */
+.section-ToDoList li {
+  position: relative;
+}
+.section-ToDoList .task-description {
+  display: none;
+  position: absolute;
+  top: 2em;
+  left: 5em;
+  z-index: 2000;
+  max-width: 90%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  line-height: 1.2em;
+  font-style: italic;
+}
+.section-ToDoList li:hover .task-description {
+  display: block;
+}
+/* Classes pour la priorité Priorités */
+.priority-low {
+  color: green;
+}
+.priority-high {
+  color: red;
+}
+.en-retard {
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* ----------- SECTION AJOUTER UNE TACHE ----------- */
+.addTask-legend {
+  display: inline-block;
+  width: 130px;
+  vertical-align: top;
+}
+.addTast-legend-radio{
+  display: inline-block;
+}
+input[name="title"], textarea[name="description"] {
+  width: 100%;
+  max-width: 592px;
+  background-color: #fff0;
+  border: 1px solid #777;
+  border-radius: 1em;
+  padding: 5px 10px;
+}
+textarea[name="description"] {
+  height: 7em;
+}
