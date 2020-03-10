@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Liens vers le CSS et fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>PHP1.2 - Ma ToDo List</title>
+  </head>
+  <body>
+    <h1>ToDo List</h1>
+    <div class="container">
+      <!-- SECTION : affichage de la ToDoList  (quelques éléments d'exemple pour le fun) -->
+      <section class="section-ToDoList">
+        <!-- Formulaire envoyé vers le fichier DELETE.PHP. C'est lui qui va gérer la suppression -->
+        <form class="form-ToDoList" action="delete.php" method="post">
+          <ul>
+            <?php foreach ($tasks as $index => $task): ?>
+              <li>
+                <input type="checkbox" id="task-<?= $index ?>" name="tasks[]" value="<?= $index ?>">
+                <label for="task-<?= $index ?>" class="<?= $task[3] ?>"><?= $task[0]; ?>
+                <?php if ($today > date_create($task[2])): ?>
+                  <span class="en-retard">- en retard</span>
+                <?php endif; ?>
+                </label>
+                <div class="task-description"><?= $task[1]; ?></div>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+          <button type="submit">Supprimer</button>
+        </form>
+      </section>
+
+      <!-- SECTION : Ajout d'une nouvelle tache -->
+      <section class="section-addTask">
+        <hr>
+        <h2>Nouvelle Tache</h2>
+        <!-- Formulaire envoyé vers le fichier ADD.PHP. C'est lui qui va gérer l'ajout -->
+        <form class="form-addTask" action="add.php" method="post">
+          <!-- Titre -->
+          <p>
+            <label for="title" class="addTask-legend">Titre</label>
+            <input type="text" name="title" id="title" placeholder="Titre...">
+          </p>
+          <!-- Description -->
+          <p>
+            <label for="description" class="addTask-legend">Description</label>
+            <textarea name="description" id="description" placeholder="Description..."></textarea>
+          </p>
+          <!-- Date d'échéance : 3 selects automatisés avec php -->
+          <p class="addTask-legend">
+            <label for="day">Date d'échéance</label>
+          </p>
+          <p class="addTast-legend-radio">
+            <select name="day" id="day">
+              <?php for ($i=1; $i < 32; $i++): ?>
+                <option value="<?= $i; ?>" ><?= $i; ?></option>
+              <?php endfor; ?>
+            </select>
+            <select name="month" id="month">
+              <?php for ($i=0; $i < 12; $i++): ?>
+                <option value="<?= ($i + 1); ?>" ><?= ($months[$i]); ?></option>
+              <?php endfor; ?>
+            </select>
+            <select name="year" id="year">
+              <?php for ($i=0; $i < 5; $i++): ?>
+                <option value="<?= ($currentYear + $i); ?>" ><?= ($currentYear + $i); ?></option>
+              <?php endfor; ?>
+            </select>
+          </p>
+          <!-- Priorité -->
+          <p>
+            <p class="addTask-legend">Priorité</p>
+            <p class="addTast-legend-radio">
+              <input type="radio" id="priority-low" name="priority" value="priority-low">
+              <label for="priority-low">Basse</label>
+              <input type="radio" id="priority-normal" name="priority" value="priority-normal" checked>
+              <label for="priority-normal">Normale</label>
+              <input type="radio" id="priority-high" name="priority" value="priority-high">
+              <label for="priority-high">Haute</label>
+            </p>
+          </p>
+          <button type="submit">Ajouter</button>
+
+        </form>
+      </section>
+    </div>
+
+  </body>
+</html>
