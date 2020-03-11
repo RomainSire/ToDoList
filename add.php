@@ -2,7 +2,7 @@
 // les données qu'on reçoit du formulaire sont dans $_POST
 //var_dump($_POST);
 
-// on veut stocker les infos, mais on ne sais pas encore utiliser les bases de données.
+// on veut stocker les infos, mais sans bases de données.
 // ==> On va stocker les infos dans un fichier CSV
 
 
