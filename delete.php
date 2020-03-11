@@ -26,7 +26,7 @@ if (array_key_exists('tasks', $_POST)) {
     // à chaque fois qu'on delete un élément avec splice, les valeurs qui suivent dant le tableau vont être décallées "d'un cran".
     // Donc pour supprimer la bonne valeur, il faut supprimer l'index ($indexesOfTasksToDelete[$i]-$i)
   }
-  // CORRECTION : AUTRE POSSIBILITÉ (PLUS SIMPLE À COMPRENDRE)
+  // AUTRE POSSIBILITÉ (plus simple à comprendre)
   // Plutot que de supprimer les valeurs dans le tableau $tasks, on va plutot créer un 2eme tableau $tasksToKeep avec seulement les taches à conserver
   /*
   $tasksToKeep = []; // Tâches qu'on souhaite garder
